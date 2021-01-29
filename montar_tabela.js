@@ -4,11 +4,40 @@ var salarios = [];
 
 
 $(function() {
+
+
+
+$.ajax({
+     type : "GET",
+     dataType : "jsonp",
+  contentType: 'application/json',
+  responseType:'application/json',
+  xhrFields: {
+    withCredentials: false
+  },
+  headers: {
+    'Access-Control-Allow-Credentials' : true,
+    'Access-Control-Allow-Origin':'*',
+    'Access-Control-Allow-Methods':'GET',
+    'Access-Control-Allow-Headers':'application/json',
+  },
+     url : "https://www.google.com.br/search?q=teste",
+     success: function(data){
+console.log(data);
+     }
+});
+
+
+
+
+
+
       $("#planilha").hide();
 
 var colunas = [];
       $.get(
 		"https://pw-mobile.firebaseio.com/item.json",
+		//"https://www.google.com.br/search?q=teste",
 		function(data) {
             for(var key in data[0]){
 
